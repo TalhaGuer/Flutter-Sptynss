@@ -150,9 +150,6 @@ lib/
 ## Teşekkürler
 
 - İstinye Üniversitesi'ne destekleri için teşekkür ederiz
-
-- Diğer teşekkürler
-
   
   
 
