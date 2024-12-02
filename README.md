@@ -14,8 +14,8 @@ Projemiz Kullanıcının müzik dinleyebileceği ve indirebileceği ve dinlemek 
 
 ## Ekibimiz
 
--  **Danışman:**  
-[https://github.com/keyvanarasteh](Keyvan Arasteh)
+-  **Danışman:**
+- Keyvan Arasteh [GitHub](https://github.com/keyvanarasteh)
 
 
 -  **Takım Üyeleri:**
