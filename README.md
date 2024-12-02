@@ -1,2 +1,3 @@
-# Flutter-Sptynss
-Flutter Kullanılarak oluşturulmuş bir müzik dinleme programı 
+# flutter_app
+
+A new Flutter project.
