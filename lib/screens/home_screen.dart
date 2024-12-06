@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'download_music_screen.dart';
-import 'profile.dart';  // Profil sayfasını içe aktardık.
+import 'profile.dart'; 
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -79,7 +79,7 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
-              // Arama işlevi
+             
             },
           ),
         ],
@@ -118,7 +118,7 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
-            // Profil butonunu ekledik
+           
             ListTile(
               leading: const Icon(Icons.account_circle),
               title: const Text("Profil"),
@@ -126,7 +126,7 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ProfileScreen(), // Profil sayfasına yönlendirir.
+                    builder: (context) => const ProfileScreen(), 
                   ),
                 );
               },
@@ -312,7 +312,7 @@ class MusicDetailScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // İndirme işlemi burada yapılabilir
+               
               },
               style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
               child: const Text("İndir"),
