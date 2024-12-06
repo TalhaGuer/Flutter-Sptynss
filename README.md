@@ -14,8 +14,8 @@ Projemiz Kullanıcının müzik dinleyebileceği ve indirebileceği ve dinlemek 
 
 ## Ekibimiz
 
--  **Danışman:**  
-[https://github.com/keyvanarasteh](Keyvan Arasteh)
+-  **Danışman:**
+- Keyvan Arasteh [GitHub](https://github.com/keyvanarasteh)
 
 
 -  **Takım Üyeleri:**
@@ -43,7 +43,7 @@ Projemiz Kullanıcının müzik dinleyebileceği ve indirebileceği ve dinlemek 
 
 ### Gereksinimler
 
-- Flutter SDK (sürüm X.X.X)
+- Flutter SDK (sürüm 10.0.26100.2454)
 
 - Dart SDK (sürüm 1.  3.7.0-132.0.dev)
 
@@ -150,9 +150,6 @@ lib/
 ## Teşekkürler
 
 - İstinye Üniversitesi'ne destekleri için teşekkür ederiz
-
-- Diğer teşekkürler
-
   
   
 
