@@ -13,22 +13,22 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start, // Daha üst kısma taşıyoruz
-          crossAxisAlignment: CrossAxisAlignment.center, // Ortada hizalama
+          mainAxisAlignment: MainAxisAlignment.start, 
+          crossAxisAlignment: CrossAxisAlignment.center, 
           children: [
-            const SizedBox(height: 50), // Yukarıdan boşluk bırakıyoruz
-            // Profil Fotoğrafı
+            const SizedBox(height: 50), 
+            
             ClipRRect(
-              borderRadius: BorderRadius.circular(100), // Yuvarlak yapıyoruz
+              borderRadius: BorderRadius.circular(100),
               child: Image.asset(
-                'assets/images/profil.png', // Profil fotoğrafı dosyasının yolu
+                'assets/images/profil.png',
                 height: 150,
                 width: 150,
                 fit: BoxFit.cover,
               ),
             ),
             const SizedBox(height: 20),
-            // Kullanıcı Adı
+          
             const Text(
               "Talha Güleryüz",
               style: TextStyle(
@@ -38,9 +38,9 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            // Kullanıcı Bilgileri
+            
             const Text(
-              "Telefon: +90 551 043 07 86", // Yeni telefon numarası
+              "Telefon: +90 551 043 07 86", 
               style: TextStyle(
                 color: Colors.white70,
                 fontSize: 16,
@@ -55,7 +55,7 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            // Bu kısımda butonlar kaldırıldı
+           
           ],
         ),
       ),
