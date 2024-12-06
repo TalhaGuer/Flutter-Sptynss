@@ -10,7 +10,7 @@ class LoadingScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(""),
         centerTitle: true,
-        automaticallyImplyLeading: false, // Geri ok kaldırıldı
+        automaticallyImplyLeading: false, 
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -58,7 +58,7 @@ class LoadingScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Kayıt olma işlemi yapılabilir
+          
               },
               child: const Text("Kayıt Ol"),
             ),
