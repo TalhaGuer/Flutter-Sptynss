@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'download_music_screen.dart';
-import 'profile.dart'; 
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -79,7 +78,7 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
-             
+              // Arama işlevi
             },
           ),
         ],
@@ -114,19 +113,6 @@ class HomeScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const CategoryScreen(),
-                  ),
-                );
-              },
-            ),
-           
-            ListTile(
-              leading: const Icon(Icons.account_circle),
-              title: const Text("Profil"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ProfileScreen(), 
                   ),
                 );
               },
