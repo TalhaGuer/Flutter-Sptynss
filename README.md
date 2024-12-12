@@ -117,7 +117,6 @@ lib/
 
 ![Ekran görüntüsü 2024-12-06 171130](https://github.com/user-attachments/assets/af3861e9-4ae8-49ad-a51b-c32a8496235f)
 ![Ekran görüntüsü 2024-12-06 171135](https://github.com/user-attachments/assets/47828130-315a-48e5-a1c3-1801e5eb81cb)
-![Ekran görüntüsü 2024-12-06 171139](https://github.com/user-attachments/assets/0d7953db-7e26-4d43-96b9-d7206f88cba1)
 ![Ekran görüntüsü 2024-12-06 171143](https://github.com/user-attachments/assets/c47f3a3c-9554-4300-a88b-ae2733b7fa0c)
 ![Ekran görüntüsü 2024-12-06 171147](https://github.com/user-attachments/assets/23f28d9f-6b35-4010-b907-271c1eaf8f4b)
 
