@@ -8,10 +8,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  provider: ^6.0.3
   cupertino_icons: ^1.0.8
   flutter_secure_storage: ^9.2.2
   shared_preferences: ^2.3.3
   go_router: ^14.6.1
+  flutter_launcher_icons: ^0.14.3
 
 dev_dependencies:
   flutter_test:
@@ -23,3 +25,14 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+
+flutter_icons:
+  image_path: "assets/icons/mARDİDED.png"
+  android: true
+  ios: true
+  web: true
+  windows: true
+  macos: true
+  min_sdk_android: 21
+  icon_size: 48
+  theme_color: "#232f3b"
