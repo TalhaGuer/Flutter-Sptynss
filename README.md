@@ -115,12 +115,11 @@ lib/
 
 ## Ekran Görüntüleri
 
-![Ekran görüntüsü 2024-12-06 171130](https://github.com/user-attachments/assets/af3861e9-4ae8-49ad-a51b-c32a8496235f)
-![Ekran görüntüsü 2024-12-06 171135](https://github.com/user-attachments/assets/47828130-315a-48e5-a1c3-1801e5eb81cb)
-![Ekran görüntüsü 2024-12-06 171143](https://github.com/user-attachments/assets/c47f3a3c-9554-4300-a88b-ae2733b7fa0c)
-![Ekran görüntüsü 2024-12-06 171147](https://github.com/user-attachments/assets/23f28d9f-6b35-4010-b907-271c1eaf8f4b)
-
-  
+![Ekran görüntüsü 2025-01-27 005309](https://github.com/user-attachments/assets/dfecb10a-5394-4839-89f4-1ec9ff9eb606)
+![Ekran görüntüsü 2025-01-27 005508](https://github.com/user-attachments/assets/eb96e244-b8eb-4406-9da2-a6f640aaa910)
+![Ekran görüntüsü 2025-01-27 005458](https://github.com/user-attachments/assets/b80d2880-0fd2-4072-8da3-c3895489f3c3)
+![Ekran görüntüsü 2025-01-27 005320](https://github.com/user-attachments/assets/be960b75-9ab4-41eb-ae29-6357c93a8c2c)
+![Ekran görüntüsü 2025-01-27 005315](https://github.com/user-attachments/assets/3a4b102a-0921-4f36-b083-926002297934)
 
 ## Projeye Katkı Sağlama
 
