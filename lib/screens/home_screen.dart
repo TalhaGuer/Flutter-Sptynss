@@ -1,393 +1,264 @@
 import 'package:flutter/material.dart';
-import 'download_music_screen.dart';
+import 'package:provider/provider.dart';
+import '../core/themes.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  final String song;
+  final String artist;
+  final String duration;
+  final String imagePath;
 
-  final List<Map<String, String>> songs = const [
-    {
-      "song": "Rakkas",
-      "artist": "Sezen Aksu",
-      "duration": "03:25",
-      "imagePath": "assets/images/2.png"
-    },
-    {
-      "song": "Şımarık",
-      "artist": "Tarkan",
-      "duration": "04:05",
-      "imagePath": "assets/images/1.png"
-    },
-    {
-      "song": "Deli",
-      "artist": "Mor ve Ötesi",
-      "duration": "04:20",
-      "imagePath": "assets/images/3.png"
-    },
-    {
-      "song": "Aradan Çook Yıllar Geçti",
-      "artist": "Tuğçe Kandemir",
-      "duration": "03:15",
-      "imagePath": "assets/images/4.png"
-    },
-    {
-      "song": "Gülümse",
-      "artist": "Sezen Aksu",
-      "duration": "03:15",
-      "imagePath": "assets/images/5.png"
-    },
-    {
-      "song": "Naçar",
-      "artist": "Emre Fel",
-      "duration": "03:13",
-      "imagePath": "assets/images/6.png"
-    },
-    {
-      "song": "Geçiyor Zaman",
-      "artist": "Semicenk",
-      "duration": "02:15",
-      "imagePath": "assets/images/7.png"
-    },
-    {
-      "song": "Yokluğunda",
-      "artist": "Leyla The Band",
-      "duration": "02:15",
-      "imagePath": "assets/images/8.png"
-    },
-    {
-      "song": "Kolay Değildir",
-      "artist": "Duman",
-      "duration": "02:15",
-      "imagePath": "assets/images/9.png"
-    },
-    {
-      "song": "Dumanlı Kentin Hatırası",
-      "artist": "Kayra",
-      "duration": "02:15",
-      "imagePath": "assets/images/10.png"
-    },
-  ];
+  const HomeScreen({
+    super.key,
+    required this.song,
+    required this.artist,
+    required this.duration,
+    required this.imagePath,
+  });
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  double currentPosition = 0.0;
+  final double totalDuration = 243.0;
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SptyMusic"),
-        centerTitle: false,
-        backgroundColor: Colors.black,
+        title: const Text("Şarkı Detayları"),
         actions: [
           IconButton(
-            icon: const Icon(Icons.search),
+            icon: Icon(
+              themeProvider.isDark ? Icons.light_mode : Icons.dark_mode,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
             onPressed: () {
-              // Arama işlevi
+              themeProvider.toggleTheme();
             },
           ),
         ],
       ),
       drawer: Drawer(
-        child: ListView(
+        child: Column(
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.green),
-              child: Text(
-                "Menü",
-                style: TextStyle(color: Colors.white, fontSize: 24),
+            UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                child: Icon(
+                  Icons.person,
+                  size: 50,
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                ),
+              ),
+              accountName: const Text("Hoşgeldiniz"),
+              accountEmail: null,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.download),
-              title: const Text("İndirilenler"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const DownloadMusicScreen(),
-                  ),
-                );
-              },
+              leading: const Icon(Icons.download_rounded),
+              title: const Text('İndirilenler'),
+              onTap: () => Navigator.pushNamed(context, '/downloadMusic'),
             ),
             ListTile(
-              leading: const Icon(Icons.category),
-              title: const Text("Kategoriler"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CategoryScreen(),
-                  ),
-                );
-              },
+              leading: const Icon(Icons.person),
+              title: const Text('Profil'),
+              onTap: () => Navigator.pushNamed(context, '/profile'),
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Ayarlar'),
+              onTap: () => Navigator.pushNamed(context, '/settings'),
+            ),
+            const Spacer(),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Çıkış Yap'),
+              onTap: () => Navigator.pushNamed(context, '/login'),
             ),
           ],
         ),
       ),
       body: Column(
         children: [
-          Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.all(8.0),
-              itemCount: songs.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      songs[index]['imagePath']!,
-                      height: 50,
-                      width: 50,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  title: Text(
-                    songs[index]['song']!,
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                  subtitle: Text(
-                    songs[index]['artist']!,
-                    style: const TextStyle(color: Colors.grey),
-                  ),
-                  trailing: Text(
-                    songs[index]['duration']!,
-                    style: const TextStyle(color: Colors.grey),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MusicDetailScreen(
-                          songName: songs[index]['song']!,
-                          artistName: songs[index]['artist']!,
-                          imagePath: songs[index]['imagePath']!,
-                        ),
-                      ),
-                    );
-                  },
-                );
-              },
-            ),
-          ),
-          Container(
-            color: Colors.grey[900],
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
             child: Row(
               children: [
-                const Icon(
-                  Icons.album,
-                  color: Colors.white,
-                  size: 48,
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16.0),
+                  child: Image.asset(
+                    'assets/images/7.png',
+                    height: 80,
+                    width: 80,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 const SizedBox(width: 16),
-                const Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Kufi",
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                        overflow: TextOverflow.ellipsis,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.song,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
-                      Text(
-                        "Duman",
-                        style: TextStyle(color: Colors.grey, fontSize: 14),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      widget.artist,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onSurface
+                            .withOpacity(0.6),
                       ),
-                    ],
-                  ),
-                ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.skip_previous,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.play_arrow,
-                    color: Colors.green,
-                  ),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.skip_next,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {},
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
-        ],
-      ),
-      backgroundColor: Colors.black,
-    );
-  }
-}
-
-class MusicDetailScreen extends StatelessWidget {
-  final String songName;
-  final String artistName;
-  final String imagePath;
-
-  const MusicDetailScreen({
-    super.key,
-    required this.songName,
-    required this.artistName,
-    required this.imagePath,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(songName),
-        backgroundColor: Colors.black,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Image.asset(
-                imagePath,
-                height: 200,
-                width: 200,
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              songName,
-              style: const TextStyle(color: Colors.white, fontSize: 24),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              artistName,
-              style: const TextStyle(color: Colors.grey, fontSize: 18),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
               children: [
-                IconButton(
-                  icon: const Icon(Icons.skip_previous, color: Colors.grey),
-                  onPressed: () {},
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16.0),
+                  child: Image.asset(
+                    'assets/images/4.png',
+                    height: 80,
+                    width: 80,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                IconButton(
-                  icon: const Icon(Icons.play_arrow, color: Colors.green),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: const Icon(Icons.skip_next, color: Colors.grey),
-                  onPressed: () {},
+                const SizedBox(width: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.song,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Ali Kaan',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onSurface
+                            .withOpacity(0.6),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
-            Slider(
-              value: 0.5,
-              onChanged: (value) {},
-              activeColor: Colors.green,
-              inactiveColor: Colors.grey,
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Column(
+                  children: [
+                    Slider(
+                      value: currentPosition,
+                      min: 0,
+                      max: totalDuration,
+                      activeColor: Theme.of(context).colorScheme.primary,
+                      inactiveColor: Theme.of(context).colorScheme.onSurface.withOpacity(0.3),
+                      onChanged: (value) {
+                        setState(() {
+                          currentPosition = value;
+                        });
+                      },
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          _formatDuration(currentPosition.toInt()),
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        Text(
+                          _formatDuration(totalDuration.toInt()),
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.shuffle,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        Icons.skip_previous,
+                        size: 30,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      onPressed: () {},
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: const CircleBorder(),
+                        padding: const EdgeInsets.all(16.0),
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                      ),
+                      onPressed: () {},
+                      child: Icon(
+                        Icons.play_arrow,
+                        size: 32,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        Icons.skip_next,
+                        size: 30,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        Icons.loop,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ],
             ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-               
-              },
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-              child: const Text("İndir"),
-            ),
-          ],
-        ),
-      ),
-      backgroundColor: Colors.black,
-    );
-  }
-}
-
-class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Kategoriler"),
-        backgroundColor: Colors.black,
-      ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        children: [
-          CategoryTile(
-            title: "Pop",
-            icon: Icons.music_note,
-            color: Colors.blue,
-            onTap: () {},
-          ),
-          CategoryTile(
-            title: "Rock",
-            icon: Icons.headphones,
-            color: Colors.red,
-            onTap: () {},
-          ),
-          CategoryTile(
-            title: "Jazz",
-            icon: Icons.library_music,
-            color: Colors.green,
-            onTap: () {},
-          ),
-          CategoryTile(
-            title: "Classical",
-            icon: Icons.queue_music,
-            color: Colors.orange,
-            onTap: () {},
           ),
         ],
       ),
     );
   }
-}
 
-class CategoryTile extends StatelessWidget {
-  final String title;
-  final IconData icon;
-  final Color color;
-  final VoidCallback onTap;
-
-  const CategoryTile({super.key,
-    required this.title,
-    required this.icon,
-    required this.color,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Card(
-        color: color,
-        margin: const EdgeInsets.all(8.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon, size: 50, color: Colors.white),
-              const SizedBox(height: 10),
-              Text(
-                title,
-                style: const TextStyle(color: Colors.white, fontSize: 20),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+  String _formatDuration(int seconds) {
+    final int minutes = seconds ~/ 60;
+    final int remainingSeconds = seconds % 60;
+    return '$minutes:${remainingSeconds.toString().padLeft(2, '0')}';
   }
 }
