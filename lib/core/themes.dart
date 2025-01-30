@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ThemeProvider with ChangeNotifier {
   bool _isDark = false;
@@ -47,10 +48,20 @@ final lightTheme = ThemeData(
     surface: lightColors["surface"]!,
     onSurface: lightColors["onSurface"]!,
   ),
+
   textTheme: TextTheme(
-    bodySmall: TextStyle(fontSize: 12, color: lightColors["onSurface"]),
-    bodyMedium: TextStyle(fontSize: 14, color: lightColors["onSurface"]),
-    bodyLarge: TextStyle(fontSize: 16, color: lightColors["onSurface"]),
+    bodySmall: GoogleFonts.roboto(
+      fontSize: 12,
+      color: lightColors["onSurface"],
+    ),
+    bodyMedium: GoogleFonts.roboto(
+      fontSize: 14,
+      color: lightColors["onSurface"],
+    ),
+    bodyLarge: GoogleFonts.roboto(
+      fontSize: 16,
+      color: lightColors["onSurface"],
+    ),
   ),
 );
 
@@ -66,9 +77,20 @@ final darkTheme = ThemeData(
     surface: darkColors["surface"]!,
     onSurface: darkColors["onSurface"]!,
   ),
+
+ 
   textTheme: TextTheme(
-    bodySmall: TextStyle(fontSize: 12, color: darkColors["onSurface"]),
-    bodyMedium: TextStyle(fontSize: 14, color: darkColors["onSurface"]),
-    bodyLarge: TextStyle(fontSize: 16, color: darkColors["onSurface"]),
+    bodySmall: GoogleFonts.roboto(
+      fontSize: 12,
+      color: darkColors["onSurface"],
+    ),
+    bodyMedium: GoogleFonts.roboto(
+      fontSize: 14,
+      color: darkColors["onSurface"],
+    ),
+    bodyLarge: GoogleFonts.roboto(
+      fontSize: 16,
+      color: darkColors["onSurface"],
+    ),
   ),
 );
