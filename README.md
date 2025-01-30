@@ -114,7 +114,7 @@ lib/
   
 
 ## Ekran Görüntüleri
-
+Video Linkimiz https://youtube.com/shorts/3Zd9hxXgW3Q
 ![Ekran görüntüsü 2025-01-27 005309](https://github.com/user-attachments/assets/dfecb10a-5394-4839-89f4-1ec9ff9eb606)
 ![Ekran görüntüsü 2025-01-27 005508](https://github.com/user-attachments/assets/eb96e244-b8eb-4406-9da2-a6f640aaa910)
 ![Ekran görüntüsü 2025-01-27 005458](https://github.com/user-attachments/assets/b80d2880-0fd2-4072-8da3-c3895489f3c3)
